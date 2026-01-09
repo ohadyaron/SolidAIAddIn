@@ -423,7 +423,7 @@ namespace SolidAIAddIn.MCP.Handlers
                 var result = _swWrapper.AddSimpleHole(modelDoc, diameter, depth, new double[] { 0, 0, 0 });
                 
                 return result.Success 
-                    ? OperationResult<string>.Success("Hole feature applied") 
+                    ? OperationResult<string>.Ok("Hole feature applied") 
                     : OperationResult<string>.Failure(result.Message);
             }
             catch (Exception ex)
@@ -437,14 +437,14 @@ namespace SolidAIAddIn.MCP.Handlers
         {
             // Placeholder for fillet implementation
             Log.Information("Fillet feature not fully implemented");
-            return OperationResult<string>.Success("Fillet feature placeholder");
+            return OperationResult<string>.Ok("Fillet feature placeholder");
         }
 
         private OperationResult<string> ApplyChamferFeature(IModelDoc2 modelDoc, System.Collections.Generic.Dictionary<string, object> parameters)
         {
             // Placeholder for chamfer implementation
             Log.Information("Chamfer feature not fully implemented");
-            return OperationResult<string>.Success("Chamfer feature placeholder");
+            return OperationResult<string>.Ok("Chamfer feature placeholder");
         }
 
         private OperationResult<string> ApplyExtrudeFeature(IModelDoc2 modelDoc, System.Collections.Generic.Dictionary<string, object> parameters)
@@ -458,7 +458,7 @@ namespace SolidAIAddIn.MCP.Handlers
                 var result = _swWrapper.CreateRectangularExtrusion(modelDoc, width, height, depth, "Front");
                 
                 return result.Success 
-                    ? OperationResult<string>.Success("Extrude feature applied") 
+                    ? OperationResult<string>.Ok("Extrude feature applied") 
                     : OperationResult<string>.Failure(result.Message);
             }
             catch (Exception ex)

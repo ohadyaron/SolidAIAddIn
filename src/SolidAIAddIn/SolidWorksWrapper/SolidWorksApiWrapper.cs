@@ -285,7 +285,7 @@ namespace SolidAIAddIn.SolidWorksWrapper
                     if (result)
                     {
                         Log.Information("Model rebuilt successfully");
-                        return OperationResult<bool>.Success(true, "Model rebuilt");
+                        return OperationResult<bool>.Ok(true, "Model rebuilt");
                     }
                     else
                     {
@@ -350,7 +350,7 @@ namespace SolidAIAddIn.SolidWorksWrapper
                     }
 
                     Log.Information("Exported to STEP successfully: {Path}", outputPath);
-                    return OperationResult<string>.Success(outputPath, "Exported to STEP");
+                    return OperationResult<string>.Ok(outputPath, "Exported to STEP");
                 }
                 catch (Exception ex)
                 {
@@ -432,7 +432,7 @@ namespace SolidAIAddIn.SolidWorksWrapper
                                 $"- Exported to: {exportPath}";
 
                     Log.Information("=== Example Workflow Complete ===");
-                    return OperationResult<string>.Success(exportPath, summary);
+                    return OperationResult<string>.Ok(exportPath, summary);
                 }
                 catch (Exception ex)
                 {
@@ -560,7 +560,7 @@ namespace SolidAIAddIn.SolidWorksWrapper
         public string Message { get; set; } = string.Empty;
         public T? Data { get; set; }
 
-        public static OperationResult<T> Success(T data, string message = "")
+        public static OperationResult<T> Ok(T data, string message = "")
         {
             return new OperationResult<T>
             {
